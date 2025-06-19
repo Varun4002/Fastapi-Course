@@ -35,6 +35,12 @@ def create_post(post:Post):
     my_posts.append(post_dict)
     return {"message": my_posts}
 
+
+@app.get("/posts/latest")
+def latest():
+    post=my_posts[len(my_posts)-1]
+    return {"message":post}
+
 @app.get("/posts/{id}")
 def get_post(id:int):
     print(find_Post(id))
